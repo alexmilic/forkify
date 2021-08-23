@@ -31,6 +31,10 @@ export class RecipeView {
 
     }
 
+    addHandlerRender(handler) {
+        ['hashchange', 'load'].forEach(ev => window.addEventListener(ev, handler));
+    }
+
     #generateMarkup() {
        return `
             <figure class="recipe__fig">
@@ -108,6 +112,7 @@ export class RecipeView {
             </div>
         `;
     }
+
     #generateMarkupIngredient(ing) {
         return `
             <li class="recipe__ingredient">
